@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var buttonClicked = false
     @StateObject private var viewModel = ContentViewModel()
 
     // GoCreate Parking Lot
@@ -24,24 +25,35 @@ struct ContentView: View {
     ]
     
     var body: some View {
+        
         Map(coordinateRegion: $viewModel.defaultRegion, annotationItems: MapLocations) { (location) in
                 MapAnnotation(coordinate: location.coordinate) {
-                    Button(action: {zoom(location: location)}, label: {
-                        Image("pin")
-                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                            .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .offset(y: -10)
+                    Button(action: {
+                        zoom(location: location)
+                        buttonClicked = true
+                    }, label: {
+                        Pin()
                     })
                     
                 }
             }
+        
+        if buttonClicked {
+            Button(action: {
+                // zoom out function here
+            }, label: {
+                Back()
+                    .zIndex(1)
+            })
+        }
     }
     
+    
     func zoom(location: MapLocation) {
+        
         viewModel.defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
-    }
-}
+        
+        }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -91,4 +103,5 @@ final class ContentViewModel: NSObject, ObservableObject,
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
+}
 }
