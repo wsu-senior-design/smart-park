@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject private var viewModel = ContentViewModel()
+    @State var hidePins = false
 
     // GoCreate Parking Lot
     //37.716216967393, -97.28907238823209
@@ -26,20 +27,26 @@ struct ContentView: View {
     var body: some View {
         Map(coordinateRegion: $viewModel.defaultRegion, annotationItems: MapLocations) { (location) in
                 MapAnnotation(coordinate: location.coordinate) {
-                    Button(action: {zoom(location: location)}, label: {
-                        Image("pin")
-                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                            .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .offset(y: -10)
-                    })
+                    
+                    if !hidePins {
+                        Button(action: {zoom(location: location)}, label: {
+                            Image("pin")
+                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                                .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: -10)
+                        })
+                    }
                     
                 }
             }
     }
     
     func zoom(location: MapLocation) {
-        viewModel.defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
+        hidePins = true
+        
+        viewModel.defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+        
     }
 }
 
