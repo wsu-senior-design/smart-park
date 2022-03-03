@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject private var viewModel = ContentViewModel()
+
     // GoCreate Parking Lot
     //37.716216967393, -97.28907238823209
 //    @State private var defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.71901259459135, longitude: -97.29011164705359), span: MKCoordinateSpan(latitudeDelta: 0.00000001, longitudeDelta: 0.00000001))
@@ -25,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         Map(coordinateRegion: $viewModel.defaultRegion, annotationItems: MapLocations) { (location) in
                 MapAnnotation(coordinate: location.coordinate) {
-                    Button(action: {print("do something")}, label: {
+                    Button(action: {zoom(location: location)}, label: {
                         Image("pin")
                             .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                             .resizable()
@@ -35,6 +36,10 @@ struct ContentView: View {
                     
                 }
             }
+    }
+    
+    func zoom(location: MapLocation) {
+        viewModel.defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
     }
 }
 
