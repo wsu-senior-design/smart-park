@@ -14,22 +14,22 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     // GoCreate Parking Lot
     //37.716216967393, -97.28907238823209
-//    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.716216967393, longitude: -97.28907238823209), span: MKCoordinateSpan(latitudeDelta: 0.0007, longitudeDelta: 0.0007))
+    @State private var defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.716216967393, longitude: -97.28907238823209), span: MKCoordinateSpan(latitudeDelta: 0.0007, longitudeDelta: 0.0007))
     
     let MapLocations = [
         MapLocation(company: "Wichita State University", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209)
     ]
     
     var body: some View {
-        Map(
-           coordinateRegion: $viewModel.region,
-           interactionModes: MapInteractionModes.all,
-           showsUserLocation: true,
-           annotationItems: MapLocations,
-           annotationContent: { location in
-             MapPin(coordinate: location.coordinate, tint: .red)
-           }
-        )
+        Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
+                MapAnnotation(coordinate: location.coordinate) {
+                    Button(action: {print("do something")}, label: {
+                        Image("pin")
+                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                    })
+                    
+                }
+            }
     }
 }
 
