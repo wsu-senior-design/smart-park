@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var buttonClicked = false
     @StateObject private var viewModel = ContentViewModel()
     @State var hidePins = false
 
@@ -29,18 +30,28 @@ struct ContentView: View {
                 MapAnnotation(coordinate: location.coordinate) {
                     
                     if !hidePins {
-                        Button(action: {zoom(location: location)}, label: {
-                            Image("pin")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                                .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .offset(y: -10)
+                        Button(action: {
+                            zoom(location: location)
+                            buttonClicked = true
+                        }, label: {
+                            Pin()
                         })
                     }
+
                     
                 }
             }
+        
+        if buttonClicked {
+            Button(action: {
+                // zoom out function here
+            }, label: {
+                Back()
+                    .zIndex(1)
+            })
+        }
     }
+    
     
     func zoom(location: MapLocation) {
         hidePins = true
