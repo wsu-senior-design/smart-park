@@ -26,12 +26,12 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.defaultRegion, annotationItems: MapLocations) { (location) in
+        Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
                 MapAnnotation(coordinate: location.coordinate) {
                     
                     if !hidePins {
                         Button(action: {
-                            zoom(location: location)
+                            zoomIn(location: location)
                             buttonClicked = true
                         }, label: {
                             Pin()
@@ -44,7 +44,7 @@ struct ContentView: View {
         
         if buttonClicked {
             Button(action: {
-                // zoom out function here
+                zoomOut()
             }, label: {
                 Back()
                     .zIndex(1)
@@ -53,11 +53,15 @@ struct ContentView: View {
     }
     
     
-    func zoom(location: MapLocation) {
+    func zoomIn(location: MapLocation) {
         hidePins = true
         
-        viewModel.defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
-        
+        viewModel.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+    }
+    
+    func zoomOut() {
+        hidePins = false
+        viewModel.region = viewModel.defaultRegion
     }
 }
 
@@ -72,7 +76,9 @@ final class ContentViewModel: NSObject, ObservableObject,
     
 //    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.716216967393, longitude: -97.28907238823209), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
-    @Published var defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.71901259459135, longitude: -97.29011164705359), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+    @State var defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.71901259459135, longitude: -97.29011164705359), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+    
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.71901259459135, longitude: -97.29011164705359), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
     var locationManager: CLLocationManager?
     
