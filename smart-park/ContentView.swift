@@ -9,6 +9,16 @@ import UIKit
 import MapKit
 import SwiftUI
 
+class GlobalColor {
+    var parkNotTaken: Color = Color(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 0.3800349181))
+    var parkTaken: Color = Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
+    var parkNotActive: Color = Color(#colorLiteral(red: 0.4470588235, green: 0.4235294118, blue: 0.3294117647, alpha: 1))
+    var dirtColor: Color = Color(#colorLiteral(red: 0.5921568627, green: 0.4705882353, blue: 0.2431372549, alpha: 1))
+    var parkingColor: Color = Color(#colorLiteral(red: 0.4470588235, green: 0.4235294118, blue: 0.3294117647, alpha: 1))
+    var parkingLineColor: Color = Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+    var parkingCurbColor: Color = Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+}
+
 struct ContentView: View {
     
     @State private var buttonClicked = false
@@ -62,6 +72,7 @@ struct ContentView: View {
     // Function to zoom out of a parking lot.
     // TODO: Stop making API Calls on a specific parking lot.
     func zoomOut() {
+        buttonClicked = false
         hidePins = false
         viewModel.region = viewModel.defaultRegion
     }

@@ -16,6 +16,8 @@
 		9589F19327C86FE1003FEAE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589F19227C86FE1003FEAE2 /* ContentView.swift */; };
 		9589F19527C86FE3003FEAE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9589F19427C86FE3003FEAE2 /* Assets.xcassets */; };
 		9589F19827C86FE3003FEAE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9589F19727C86FE3003FEAE2 /* Preview Assets.xcassets */; };
+		95ACD31527DEADA800AA1953 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACD31427DEADA800AA1953 /* Network.swift */; };
+		95ACD31727DEAE7A00AA1953 /* ParkingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACD31627DEAE7A00AA1953 /* ParkingSpot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		9589F19227C86FE1003FEAE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9589F19427C86FE3003FEAE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9589F19727C86FE3003FEAE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		95ACD31427DEADA800AA1953 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		95ACD31627DEAE7A00AA1953 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 		9589F18F27C86FE1003FEAE2 /* smart-park */ = {
 			isa = PBXGroup;
 			children = (
+				95ACD31627DEAE7A00AA1953 /* ParkingSpot.swift */,
+				95ACD31427DEADA800AA1953 /* Network.swift */,
 				9589F19027C86FE1003FEAE2 /* smart_parkApp.swift */,
 				9589F19227C86FE1003FEAE2 /* ContentView.swift */,
 				176BDF8927D183FA000EF955 /* Pin.swift */,
@@ -154,7 +160,9 @@
 			files = (
 				9549862E27C87B9E00C735F7 /* MapLocation.swift in Sources */,
 				9589F19327C86FE1003FEAE2 /* ContentView.swift in Sources */,
-				1770682627DEB8E80079A8CC /* spotTaken.swift in Sources */,
+        1770682627DEB8E80079A8CC /* spotTaken.swift in Sources */,
+				95ACD31527DEADA800AA1953 /* Network.swift in Sources */,
+				95ACD31727DEAE7A00AA1953 /* ParkingSpot.swift in Sources */,
 				9589F19127C86FE1003FEAE2 /* smart_parkApp.swift in Sources */,
 				1770682427DEB8AA0079A8CC /* spotOpen.swift in Sources */,
 				176BDF8C27D18489000EF955 /* Back.swift in Sources */,
