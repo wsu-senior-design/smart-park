@@ -2,7 +2,7 @@
 //  spotOpen.swift
 //  smart-park
 //
-//  Created by Tuan Nguyen on 3/3/22.
+//  Created by Tuan Nguyen on 3/13/22.
 //
 
 import SwiftUI
