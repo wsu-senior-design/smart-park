@@ -62,6 +62,7 @@ struct ContentView: View {
     // Function to zoom out of a parking lot.
     // TODO: Stop making API Calls on a specific parking lot.
     func zoomOut() {
+        buttonClicked = false
         hidePins = false
         viewModel.region = viewModel.defaultRegion
     }
