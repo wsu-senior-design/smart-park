@@ -33,6 +33,31 @@ struct ContentView: View {
     ]
     
     var body: some View {
+        Menu(
+            content: {
+            Button(action: {
+                if let url = URL(string: "https://www.apple.com") {
+                UIApplication.shared.open(url)
+                }
+            }, label: {Text("Website")})
+            Button(action: {
+                if let url = URL(string: "https://www.apple.com") {
+                UIApplication.shared.open(url)
+                }
+            }, label: {Text("Data and Analytics")})
+           Button(action: {
+               if let url = URL(string: "https://www.apple.com") {
+               UIApplication.shared.open(url)
+               }
+           }, label: {Text("Contact Us")})
+            Button(action: {
+                if let url = URL(string: "https://www.apple.com") {
+                UIApplication.shared.open(url)
+                }
+            }, label: {Text("About Us")})
+            }, label: {Image(systemName: "info.circle")})
+        .offset(x: 175)
+        
         Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
                 MapAnnotation(coordinate: location.coordinate) {
                     
