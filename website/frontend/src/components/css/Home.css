@@ -64,9 +64,9 @@ a:hover {
     border: 2px solid #DFAEC1;
     background: none;
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: .8em;
     border-radius: 10px;
-    font-family: "Josefin Sans";
+    font-family: "Helvetica";
     cursor: pointer;
     margin: 10px;
     transition: 0.8s;

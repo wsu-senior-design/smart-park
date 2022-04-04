@@ -8,7 +8,7 @@ function Home() {
         <div className="wrapper">
             <div className="background-pic"></div> 
             <div className="middle-content">
-                <h1>We are Smart Park </h1>
+                <h1>WE ARE "SMART PARK"</h1>
                 <p>a short description text here</p>
                 <div className="btn-container">
                     <Link to="/about"><button className="btn btn1">Learn more</button></Link>
