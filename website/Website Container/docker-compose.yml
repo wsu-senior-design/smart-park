@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      # where docker file is 
+      context: ./django
+    # bind so we can see out of container
+    command: gunicorn core.wsgi --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+  frontend:
+    build:
+      context: ./reactapp/reactapp
+    volumes:
+      # place react build files in web server
+      - react_build:/reactapp/build
+  nginx:
+    image: nginx:latest
+    ports: 
+      - 80:8080
+    volumes:
+      # storing react build application
+      - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
+      - react_build:/var/www/react
+    depends_on:
+      - backend
+      - frontend
+volumes:
+  react_build:
