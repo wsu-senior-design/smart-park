@@ -4,6 +4,8 @@ WORKDIR /reactapp
 #ENV PATH="./node_modules.bin:$PATH"
 COPY . .
 # kind of like running pip install
-RUN npinstall -g 
+RUN rm -rf node_modules
+RUN npm install
+RUN npm install -g npm@8.7.0
 RUN npm run build 
-#CMD ["npm", "start"]
+CMD ["npm", "start"]
