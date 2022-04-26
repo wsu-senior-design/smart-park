@@ -1,0 +1,4 @@
+# name the image using python-django inside of folder
+docker build --tag python-django .
+# map across port from container to our computer
+docker run --publish 8000:8000 python-django
