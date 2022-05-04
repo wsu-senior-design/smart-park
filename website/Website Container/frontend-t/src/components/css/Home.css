@@ -1,0 +1,132 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.background-pic {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background: url(../../images/background.jpeg) no-repeat center center;
+    background-size: cover;
+    opacity: 0.82;
+    top: 0;
+    left: 0;
+}
+.background-pic::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background: #FFB6C1;
+    opacity: 0.1;   
+}
+.middle-content {
+    position: absolute;
+    display: inline-block;
+    top: 63%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    line-height: 1.6em;
+    font-size: 1.5em; 
+    z-index: 2;
+    width: 500px;
+}
+.middle-content p {
+    color: white;
+    font-size: 0.8em;
+    font-weight: 400;
+}
+.middle-content p::before {
+    content: '~';
+    font-size: 30px;
+}
+.middle-content h1 {
+    margin-left: -5px;
+    font-size: 2em;
+    color: #EEEEEE;
+    font-weight: bold;
+}
+.btn{
+    border: 2px solid #f19689;
+    background: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 10px;
+    font-family: "Josefin Sans";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.btn1 {
+    margin-left: 0;
+}
+.btn1,.btn2 {
+  color: #f19689;
+}
+.btn1:hover,.btn2:hover{
+  color: white;
+}
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #f19689;
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn1::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+.btn2::before {
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+.btn1:hover::before,.btn2:hover::before{
+  height: 200%;
+}
+
+.sub-heading p, .sub-heading span {
+    color: white;
+    font-family: ;
+}
+.sub-heading::before {
+    content: '~';
+    color: white;
+    font-size: 1.2em;
+}
+.Typewriter {
+    display: inline-block;
+}
+.Typewriter__wrapper, .Typewriter__cursor {
+    color: RGBA(258, 141, 131) !important;
+    font-weight: bold;
+}
