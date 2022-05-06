@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		176BDF8A27D183FA000EF955 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BDF8927D183FA000EF955 /* Pin.swift */; };
 		176BDF8C27D18489000EF955 /* Back.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BDF8B27D18489000EF955 /* Back.swift */; };
+		1799E87128255ABA00749A3D /* Taken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1799E87028255ABA00749A3D /* Taken.swift */; };
+		1799E87328255AF100749A3D /* Open.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1799E87228255AF100749A3D /* Open.swift */; };
 		9549862E27C87B9E00C735F7 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549862D27C87B9E00C735F7 /* MapLocation.swift */; };
 		9589F19127C86FE1003FEAE2 /* smart_parkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589F19027C86FE1003FEAE2 /* smart_parkApp.swift */; };
 		9589F19327C86FE1003FEAE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589F19227C86FE1003FEAE2 /* ContentView.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		176BDF8927D183FA000EF955 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		176BDF8B27D18489000EF955 /* Back.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Back.swift; sourceTree = "<group>"; };
+		1799E87028255ABA00749A3D /* Taken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taken.swift; sourceTree = "<group>"; };
+		1799E87228255AF100749A3D /* Open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Open.swift; sourceTree = "<group>"; };
 		9549862D27C87B9E00C735F7 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
 		9589F18D27C86FE1003FEAE2 /* smart-park.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smart-park.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9589F19027C86FE1003FEAE2 /* smart_parkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smart_parkApp.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				9589F19027C86FE1003FEAE2 /* smart_parkApp.swift */,
 				9589F19227C86FE1003FEAE2 /* ContentView.swift */,
 				176BDF8927D183FA000EF955 /* Pin.swift */,
+				1799E87028255ABA00749A3D /* Taken.swift */,
+				1799E87228255AF100749A3D /* Open.swift */,
 				176BDF8B27D18489000EF955 /* Back.swift */,
 				95DC23542824A4DA0046D974 /* ParkingLot.swift */,
 				9549862D27C87B9E00C735F7 /* MapLocation.swift */,
@@ -161,8 +167,10 @@
 				95ACD31727DEAE7A00AA1953 /* ParkingSpot.swift in Sources */,
 				9589F19127C86FE1003FEAE2 /* smart_parkApp.swift in Sources */,
 				176BDF8C27D18489000EF955 /* Back.swift in Sources */,
+				1799E87128255ABA00749A3D /* Taken.swift in Sources */,
 				95DC23552824A4DA0046D974 /* ParkingLot.swift in Sources */,
 				176BDF8A27D183FA000EF955 /* Pin.swift in Sources */,
+				1799E87328255AF100749A3D /* Open.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

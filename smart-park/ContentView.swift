@@ -52,7 +52,7 @@ struct ContentView: View {
                                 Button(action: {
                                     print("TEST")
                                 }, label: {
-                                    Pin()
+                                    Taken()
                                 })
                         }
                     }
