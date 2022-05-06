@@ -19,10 +19,15 @@ class GlobalColor {
     var parkingCurbColor: Color = Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
 }
 
+class GlobalView: ObservableObject {
+  @Published var viewModel = ContentViewModel()
+}
+
+
 struct ContentView: View {
-    
+    @State var showLots = false
     @State private var buttonClicked = false
-    @StateObject private var viewModel = ContentViewModel()
+    @StateObject var viewModel = GlobalView().viewModel
     @State var hidePins = false
     @State var hideSpots = false
     
@@ -34,37 +39,51 @@ struct ContentView: View {
     ]
     
     let ParkingLocations = [
-        ParkingSpot(isActive: true, isTaken: true, company: "WSU", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: 97.28907238823209)
+        ParkingSpot(isActive: true, isTaken: true, company: "WSU", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209)
     ]
     
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
-                MapAnnotation(coordinate: location.coordinate) {
-                    
-                    // Hide pins when a parking lot is zoomed in.
-                    if !hidePins {
-                        Button(action: {
-                            zoomIn(location: location)
-                            buttonClicked = true
-                            hidePins = true
-                            ShowParkingSpots()
-                        }, label: {
-                            Pin()
-                        })
+        //NavigationLink("ShowParkingSpaces", destination: ShowParkingSpaces(), isActive: $showLots)
+        
+        if showLots {
+                Map(coordinateRegion: $viewModel.region, annotationItems: ParkingLocations) { (location) in
+                        MapAnnotation(coordinate: location.coordinate) {
+                                Button(action: {
+                                    print("TEST")
+                                }, label: {
+                                    Pin()
+                                })
+                        }
                     }
+        } else {
+            Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
+                    MapAnnotation(coordinate: location.coordinate) {
+                        
+                        // Hide pins when a parking lot is zoomed in.
+                        if !hidePins {
+                            Button(action: {
+                                zoomIn(location: location)
+                                buttonClicked = true
+                                hidePins = true
+                                self.showLots.toggle()
+                            }, label: {
+                                Pin()
+                            })
+                        }
 
-                    
+                        
+                    }
                 }
-            }
+        }
         
         // Zoom out of a parking lot when the button is tapped.
         if buttonClicked {
             Button(action: {
                 buttonClicked = false
                 hidePins = false
+                self.showLots.toggle()
                 zoomOut()
-                
             }, label: {
                 Back()
                     .zIndex(1)
@@ -82,21 +101,6 @@ struct ContentView: View {
     // TODO: Stop making API Calls on a specific parking lot.
     func zoomOut() {
         viewModel.region = viewModel.defaultRegion
-    }
-    
-    func ShowParkingSpots() {
-        Map(coordinateRegion: $viewModel.region, annotationItems: ParkingLocations) { (location) in
-                MapAnnotation(coordinate: location.coordinate) {
-                    
-                    // Hide pins when a parking lot is zoomed in.
-                    if !hideSpots {
-                        Button(action: {
-                        }, label: {
-                            Pin()
-                        })
-                    }
-                }
-            }
     }
 }
 
