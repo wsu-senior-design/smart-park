@@ -24,6 +24,7 @@ struct ContentView: View {
     @State private var buttonClicked = false
     @StateObject private var viewModel = ContentViewModel()
     @State var hidePins = false
+    @State var hideSpots = false
     
     // Hard-coded list of Parking Lots
     let MapLocations = [
@@ -31,6 +32,11 @@ struct ContentView: View {
         MapLocation(company: "Wichita State University", parkingLot: "John Bardo Center", latitude: 37.71677259515639, longitude: -97.2856103058299),
         MapLocation(company: "Wichita State University", parkingLot: "Parking Lot A", latitude: 37.71607017390777, longitude: -97.29222805745869)
     ]
+    
+    let ParkingLocations = [
+        ParkingSpot(isActive: true, isTaken: true, company: "WSU", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: 97.28907238823209)
+    ]
+    
     
     var body: some View {
         Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
@@ -41,6 +47,8 @@ struct ContentView: View {
                         Button(action: {
                             zoomIn(location: location)
                             buttonClicked = true
+                            hidePins = true
+                            ShowParkingSpots()
                         }, label: {
                             Pin()
                         })
@@ -53,7 +61,10 @@ struct ContentView: View {
         // Zoom out of a parking lot when the button is tapped.
         if buttonClicked {
             Button(action: {
+                buttonClicked = false
+                hidePins = false
                 zoomOut()
+                
             }, label: {
                 Back()
                     .zIndex(1)
@@ -64,17 +75,28 @@ struct ContentView: View {
     // Function to zoom into a parking lot.
     // TODO: Make API Calls to ThingsBoard and fill parking lot with parking spaces to be updated every 5 seconds.
     func zoomIn(location: MapLocation) {
-        hidePins = true
-        
         viewModel.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
     }
     
     // Function to zoom out of a parking lot.
     // TODO: Stop making API Calls on a specific parking lot.
     func zoomOut() {
-        buttonClicked = false
-        hidePins = false
         viewModel.region = viewModel.defaultRegion
+    }
+    
+    func ShowParkingSpots() {
+        Map(coordinateRegion: $viewModel.region, annotationItems: ParkingLocations) { (location) in
+                MapAnnotation(coordinate: location.coordinate) {
+                    
+                    // Hide pins when a parking lot is zoomed in.
+                    if !hideSpots {
+                        Button(action: {
+                        }, label: {
+                            Pin()
+                        })
+                    }
+                }
+            }
     }
 }
 

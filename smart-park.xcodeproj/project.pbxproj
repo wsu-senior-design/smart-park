@@ -16,6 +16,7 @@
 		9589F19827C86FE3003FEAE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9589F19727C86FE3003FEAE2 /* Preview Assets.xcassets */; };
 		95ACD31527DEADA800AA1953 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACD31427DEADA800AA1953 /* Network.swift */; };
 		95ACD31727DEAE7A00AA1953 /* ParkingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACD31627DEAE7A00AA1953 /* ParkingSpot.swift */; };
+		95DC23552824A4DA0046D974 /* ParkingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC23542824A4DA0046D974 /* ParkingLot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9589F19727C86FE3003FEAE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95ACD31427DEADA800AA1953 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		95ACD31627DEAE7A00AA1953 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
+		95DC23542824A4DA0046D974 /* ParkingLot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				9589F19227C86FE1003FEAE2 /* ContentView.swift */,
 				176BDF8927D183FA000EF955 /* Pin.swift */,
 				176BDF8B27D18489000EF955 /* Back.swift */,
+				95DC23542824A4DA0046D974 /* ParkingLot.swift */,
 				9549862D27C87B9E00C735F7 /* MapLocation.swift */,
 				9589F19627C86FE3003FEAE2 /* Preview Content */,
 			);
@@ -158,6 +161,7 @@
 				95ACD31727DEAE7A00AA1953 /* ParkingSpot.swift in Sources */,
 				9589F19127C86FE1003FEAE2 /* smart_parkApp.swift in Sources */,
 				176BDF8C27D18489000EF955 /* Back.swift in Sources */,
+				95DC23552824A4DA0046D974 /* ParkingLot.swift in Sources */,
 				176BDF8A27D183FA000EF955 /* Pin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

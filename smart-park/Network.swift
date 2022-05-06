@@ -69,9 +69,9 @@ class Network {
 struct NodeData: Codable {
 //    var data_rssi: [NodeValue]
 //    var data_snr: [NodeValue]
-    var data_payload: [NodeValue]
+    var payload: [NodeValue]
 }
 struct NodeValue: Codable {
-    var ts: Int
+    //var ts: Int
     var value: String
 }

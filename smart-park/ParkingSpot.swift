@@ -1,43 +1,22 @@
 //
 //  ParkingSpot.swift
-//  Smart parking
+//  smart-park
 //
-//  Created by Trong Van  on 11/6/21.
+//  Created by Phong Vo on 5/5/22.
 //
-import SwiftUI
+import Foundation
+import CoreLocation
+import MapKit
 
-struct ParkingSpot: View {
-    var globalColor = GlobalColor()             //global Variable Class
-    var width: CGFloat
-    var height: CGFloat
+struct ParkingSpot: Identifiable {
+    let id = UUID()
     var isActive: Bool
     var isTaken: Bool
-    let border: [Edge]
-    init(width: Double, isActive: Bool, isTaken: Bool, border: [Edge]) {
-        self.width = CGFloat(width)
-        self.isTaken = isTaken
-        self.isActive = isActive
-        self.height = CGFloat(width * 2.2)
-        self.border = border
-    }
-    
-    var body: some View {
-        if(!isActive) {
-            Rectangle()
-                .foregroundColor(globalColor.parkNotActive)
-                .frame(width: height, height: width)
-                .border(width: 3, edges: border, color: globalColor.parkingLineColor)
-        }
-        else if(!isTaken){
-            Rectangle()
-                .foregroundColor(globalColor.parkNotTaken)
-                .frame(width: height, height: width)
-                .border(width: 3, edges: border, color: globalColor.parkingLineColor)
-        } else {
-            Rectangle()
-                .foregroundColor(globalColor.parkTaken)
-                .frame(width: height, height: width)
-                .border(width: 3, edges: border, color: globalColor.parkingLineColor)
-        }
+    let company: String
+    let parkingLot: String
+    let latitude: Double
+    let longitude: Double
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
