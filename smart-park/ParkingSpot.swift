@@ -12,7 +12,8 @@ struct ParkingSpot: Identifiable {
     let id = UUID()
     var isActive: Bool
     var isTaken: Bool
-    let company: String
+    var status = Taken()
+    let transID: String
     let parkingLot: String
     let latitude: Double
     let longitude: Double

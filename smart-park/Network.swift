@@ -11,9 +11,12 @@ class Network {
     //    //look into fetchable in swift
     func getParkingLots(completion: @escaping (NodeData) -> ()){
         
-        // URL
-        let url = URL(string: "http://10.50.208.17:9090/api/plugins/telemetry/DEVICE/1211cf00-3350-11ec-b020-4fe1b95b4375/values/timeseries?useStrictDataTypes=false")
+        // 400z URL
+        //let url = URL(string: "https://thingsboard.cloud:443/api/plugins/telemetry/DEVICE/e8613230-c9aa-11ec-b27f-d3ef2e0c0a7d/values/timeseries?keys=payload")
         
+        //NSX URL
+        let url = URL(string: "https://thingsboard.cloud:443/api/plugins/telemetry/DEVICE/8b2cf940-ccda-11ec-8c76-ad8278896f52/values/timeseries?keys=payload")
+ 
         //Guard against empty URL
         guard url != nil else { print("Error creating the url" ); return}
         
@@ -24,7 +27,7 @@ class Network {
         // just need a new JWT each time
         let header = [
             "Content-Type": "application/json",
-            "X-Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ6NDc3dzQ3NUB3aWNoaXRhLmVkdSIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwidXNlcklkIjoiZGU2NjczNzAtMzM0Yy0xMWVjLWIwMjAtNGZlMWI5NWI0Mzc1IiwiZmlyc3ROYW1lIjoiUGhvbmciLCJsYXN0TmFtZSI6IlZvIiwiZW5hYmxlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6ImI4NGZlNDEwLTMzNGItMTFlYy1iMDIwLTRmZTFiOTViNDM3NSIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAiLCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTYzODQwMDI1NiwiZXhwIjoxNjM4NDA5MjU2fQ.MoIMfIrFHpv41jbysHflHF7TF5iY0j272pkd_PyPhyQCNZeVsNohNubbZYi_WKNDESYDB0cs8leYHLNlbFqdRQ"
+            "X-Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEamF2ZXJ5MTdAZ21haWwuY29tIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiI4NmY2MzFhMC1iM2E1LTExZWMtODhjYi1hZDgyNzg4OTZmNTIiLCJmaXJzdE5hbWUiOiJEYW1pYW4iLCJsYXN0TmFtZSI6IkF2ZXJ5IiwiZW5hYmxlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJpc0JpbGxpbmdTZXJ2aWNlIjpmYWxzZSwicHJpdmFjeVBvbGljeUFjY2VwdGVkIjp0cnVlLCJ0ZXJtc09mVXNlQWNjZXB0ZWQiOnRydWUsInRlbmFudElkIjoiODY5M2VkNjAtYjNhNS0xMWVjLTg4Y2ItYWQ4Mjc4ODk2ZjUyIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsImlzcyI6InRoaW5nc2JvYXJkLmNsb3VkIiwiaWF0IjoxNjUxODQ3ODQ4LCJleHAiOjE2NTE4NzY2NDh9.EXpSD1Hi3QuHJpfBxzJml066f18HJtGfSO2DGYR1tKwQiYN1cG4kLCsR5hs95DFP3K6oQOpEwz3zqYrcoQV2bQ"
         ]
         //set header
         request.allHTTPHeaderFields = header

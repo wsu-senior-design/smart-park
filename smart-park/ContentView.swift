@@ -23,6 +23,20 @@ class GlobalView: ObservableObject {
   @Published var viewModel = ContentViewModel()
 }
 
+class ParkingData: ObservableObject {
+    @Published var parkingSpots = [
+        ParkingSpot(isActive: true, isTaken: true, transID: "400z", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209)
+    ]
+    func update(id: String, value: Bool){
+        for var index in parkingSpots {
+            let parkingId = index.transID
+            if(parkingId.contains(id)){
+                index.isTaken = value
+            }
+        }
+    }
+}
+
 
 struct ContentView: View {
     @State var showLots = false
@@ -31,6 +45,8 @@ struct ContentView: View {
     @State var hidePins = false
     @State var hideSpots = false
     
+    let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
+    
     // Hard-coded list of Parking Lots
     let MapLocations = [
         MapLocation(company: "Wichita State University", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209),
@@ -38,24 +54,46 @@ struct ContentView: View {
         MapLocation(company: "Wichita State University", parkingLot: "Parking Lot A", latitude: 37.71607017390777, longitude: -97.29222805745869)
     ]
     
-    let ParkingLocations = [
-        ParkingSpot(isActive: true, isTaken: true, company: "WSU", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209)
-    ]
+    @StateObject var parkingSpots = ParkingData()
     
+    let ParkingLocations = [
+        ParkingSpot(isActive: true, isTaken: false, transID: "400z", parkingLot: "GoCreate", latitude: 37.716216967393, longitude: -97.28907238823209)
+    ]
     
     var body: some View {
         //NavigationLink("ShowParkingSpaces", destination: ShowParkingSpaces(), isActive: $showLots)
         
         if showLots {
-                Map(coordinateRegion: $viewModel.region, annotationItems: ParkingLocations) { (location) in
+            Map(coordinateRegion: $viewModel.region, annotationItems: self.parkingSpots.parkingSpots) { (location) in
                         MapAnnotation(coordinate: location.coordinate) {
                                 Button(action: {
-                                    print("TEST")
+                                    print(self.parkingSpots)
+                                    print("test")
                                 }, label: {
-                                    Taken()
+                                    if location.isTaken {
+                                        Taken()
+                                    } else {
+                                        Open()
+                                    }
                                 })
                         }
+                }
+                .onAppear(){
+                    Network().getParkingLots { (NodeData) in
+                        print(NodeData)
+                        let value: Bool = NodeData.payload[0].value.contains("true")
+                        self.parkingSpots.parkingSpots[0].isTaken = value
+                        print("After: \(self.parkingSpots.parkingSpots)")
                     }
+                }
+                .onReceive(timer, perform: { _ in
+                    Network().getParkingLots { (NodeData) in
+                        print(NodeData)
+                        let value: Bool = NodeData.payload[0].value.contains("true")
+                        self.parkingSpots.parkingSpots[0].isTaken = value
+                        print("After: \(self.parkingSpots.parkingSpots)")
+                    }
+                })
         } else {
             Map(coordinateRegion: $viewModel.region, annotationItems: MapLocations) { (location) in
                     MapAnnotation(coordinate: location.coordinate) {
