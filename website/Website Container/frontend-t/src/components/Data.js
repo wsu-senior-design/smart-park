@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import "./css/Data.css";
-import { Bar } from "react-chartjs-2";
+import PowerCompChart from "./data_comp/PowerCompChart";
+import TTChart from "./data_comp/TotalTimeChart";
 
 function Data() {
-    const infos = ["Introduction", "Average duration", "Day activity", "Power consumption"];
+    const infos = ["Introduction", "Day activity", "Power consumption"];
     const [active, setActive] = useState(0);
     function changeActive(index) {
         setActive(index);
@@ -41,6 +43,7 @@ function Data() {
                 <div className="data-content-wrapper">
                     <DataContent value={active} />
                 </div>
+
             </div>
         </div> 
     )
@@ -55,15 +58,10 @@ function DataContent (props) {
     }
     else if(props.value == 1){
         return (
-            <HeatMapContent />
-        )        
-    }
-    else if(props.value == 2){
-        return (
             <AcitivityContent />
         )
     }
-    else if(props.value == 3){
+    else if(props.value == 2){
         return (
             <PowerConsumptionContent />
         )        
@@ -79,22 +77,40 @@ function IntoContent (props) {
             <h1>Introduction</h1>
             <div className="intro-content-inner">
                 <p>In the recent years, data mining has became an essential process for any growing company. It allows the company to optimize and predict their model to help improve their overall product. Data mining is an important ingredient for success in our current competitive market. Our team smart park put together all the information that we thought be useful for clients to see.</p>
-                <p> We have provided a heatmap which shows ... </p>
-                <p> We have an activity which shows ... </p>
-                <p> we have a power consumption which shows .... </p>
+                <p> The total time filled graph show sthe time (minutes) that a parking spot senses that is filled to reflect how power consumption might be affected. </p>
+                <p> The power consumption graphs shows the total power consumption of the sensor throughout the week taking into consideration the status changes of the parking spot along with the idle time. </p>
             </div> 
         </div>
     )
 }
-
-function HeatMapContent (props) {
-        return <h1>Heatmap</h1>
-}
-
 function AcitivityContent (props) {
-         return <h1>Activity</h1>   
+         return (
+             <div class="activity-wrapper">
+                <div class="y-axis-activity">
+                    <span>Minutes</span>
+                </div>
+                <div class="activity-chart">
+                    <TTChart /> 
+                </div>
+                <div class="x-axis-activity">
+                    <span>Day</span>
+                </div>
+             </div>
+         )
 }
 
 function PowerConsumptionContent (props) {
-         return <h1>Consumption</h1>   
+         return (
+             <div class="power-wrapper-pc">
+                <div class="y-axis-pc">
+                    <span>mAh</span>
+                </div>
+                <div class="pc-chart">
+                    <PowerCompChart /> 
+                </div>
+                <div class="x-axis-pc">
+                    <span>Day</span>
+                </div>
+             </div>
+         )
 }

@@ -71,5 +71,46 @@
 /* ------------ heatmap content ------------*/ 
 
 /* ------------ activity content ------------*/ 
-
+.activity-wrapper {
+    position: relative;
+    width: auto;
+    height: 380px;
+}
+.activity-chart {
+    position: absolute;
+    left: 60px;
+}
+.y-axis-activity {
+    position: absolute;
+    top: 150px;
+    display:inline-block;
+    transform: rotate(-90deg);
+}
+.x-axis-activity {
+    position: absolute;
+    bottom: 0;
+    left: 410px;
+    
+}
 /* ------------ powerconsumption content ------------*/ 
+.power-wrapper-pc {
+    position: relative;
+    width: auto;
+    height: 380px;
+}
+.pc-chart {
+    position: absolute;
+    left: 40px;
+}
+.y-axis-pc {
+    position: absolute;
+    top: 150px;
+    display:inline-block;
+    transform: rotate(-90deg);
+}
+.x-axis-pc {
+    position: absolute;
+    bottom: 0;
+    left: 390px;
+    
+}

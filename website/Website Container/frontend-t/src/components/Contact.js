@@ -5,10 +5,20 @@ function Contact(){
     return (
         <div class="contact-container">
           <div class="top">
-            <div><input type="text" className="name" id = "name" placeholder="Enter your name"></input></div>
-            <div><input type="text" className="email" id = "email" placeholder="Enter your email"></input></div>
-            <div><input type="text" className="message" id = "message" placeholder="Enter your message"></input></div>
-            <button type="submit" id = "submit">Submit</button>
+            <form action="" method="POST">
+                <div>
+                    <input type="text" className="name" id="name" placeholder="Enter your name" />
+                </div>
+                <div>
+                    <input type="text" className="email" id="email" placeholder="Enter your email" />
+                </div>
+                <div>
+                    <input type="text" className="message" id="message" placeholder="Enter your message" />
+                </div>
+                <div>
+                    <input type="submit" id ="submit" value="Submit" />
+                </div>
+            </form>
           </div>
           <div class="bottom">
             <h1>Get in touch!</h1>

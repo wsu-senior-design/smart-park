@@ -25,14 +25,13 @@
 }
 
 
-
 .contact-container .bottom h3 {
   font-size: 14px;
   font-weight: 200;
 }
 
-input, button {
-  width: calc(50% - 3em);
+input {
+  width: calc(50% - 50px);
   padding: .5em;
   font-size: 1rem;
   outline: none;
@@ -61,6 +60,8 @@ button {
   transition:transform 0.25s ease;
 }
 .contact-container .top {
+    width: 50%;
     margin-top: 80px;
+    margin-left: 10px;
     display: inline-block;
 }
