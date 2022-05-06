@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
+
+.contact-container {
+  margin: 0 auto;
+  text-align: left;
+  font-family: 'Helvetica';
+  background: #EEEEEE;
+  font-size: 26px;
+  height: 100vh;
+  color: white;
+}
+
+.contact-container .bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #dfaec1;
+  position: fixed;
+  padding: 1em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  overflow: auto;
+}
+
+
+.contact-container .bottom h3 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+input {
+  width: calc(50% - 50px);
+  padding: .5em;
+  font-size: 1rem;
+  outline: none;
+  margin: 1em;
+}
+
+button {
+  cursor: pointer;
+}
+
+.contact-container .message {
+  height: 90px;
+}
+
+.contact-container .bottom h1, .bottom h2, .bottom h3 {
+  max-width: 40%;
+}
+
+.contact-container .maps{
+  position: fixed;
+  width: 40%;
+  display: block;
+  margin-right: 5%;
+  right: 0%;
+  bottom: 25%;
+  transition:transform 0.25s ease;
+}
+.contact-container .top {
+    width: 50%;
+    margin-top: 80px;
+    margin-left: 10px;
+    display: inline-block;
+}

@@ -1,0 +1,48 @@
+.nav-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #DFAEC1;
+/*    background: #f7c4cb;*/
+    opacity: 0.9;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 70px;
+    z-index: 99;
+}
+nav {
+    float: right;
+    height: 70px;
+}
+nav ul {
+    margin-top: 10px;
+    margin-right: 50px;
+}
+nav ul li {
+    display: inline-block;
+    padding: 10px 30px;
+}
+.contact-navbar {
+    color: black !important;
+}
+nav ul li a {
+    position: relative;
+    color: white;
+    font-size: 1.6em;
+    font-family: "Space Mono";
+    font-weight: 600;
+}
+nav ul li a:hover {
+    color: white;
+    text-decoration: none;
+}
+#logo {
+    width: 60px;
+    float: left;
+    padding-left: 10px;
+}
+#logo img {
+    max-width: 100%;
+    height: auto;
+}

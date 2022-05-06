@@ -1,0 +1,116 @@
+.data-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.data-body-wrapper {
+    margin-top: 70px;
+    height: 100%;
+}
+.data-nav-sidebar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    justify-content: start;
+    z-index: 0;
+    height: 100%;
+    width: 14%;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    margin: 0 150px 0 0;
+    
+}
+.data-nav {
+    padding-top: 40px;
+    padding-left: 30px;
+}
+.data-nav ul {
+    list-style: none;
+    padding-left: 15px;
+    border-left: 1.5px solid black;
+}
+.data-nav ul li {
+    padding: 10px 0;
+    font-size: 1.1em;
+    user-select: none;
+}
+.data-nav ul li:hover {
+    color: red;
+    cursor: pointer;
+}
+.data-content-wrapper {
+    display: inline-block;
+    margin: 50px 100px 0 400px;
+
+}
+.data-content-wrapper h1:first-child {
+    margin-bottom: 10px;
+}
+.data-active {
+    font-weight: bold;
+}
+.data-active:hover {
+    color: black !important;
+}
+/* ------------ intro content ------------*/ 
+.intro-content {
+    text-align: justify;
+}
+.intro-content h1 {
+    font-size: 2em;
+}
+.intro-content p {
+    text-indent: 20px;
+    padding: 15px 30px;
+    line-height: 150%;
+}
+/* ------------ heatmap content ------------*/ 
+
+/* ------------ activity content ------------*/ 
+.activity-wrapper {
+    position: relative;
+    width: auto;
+    height: 380px;
+}
+.activity-chart {
+    position: absolute;
+    left: 60px;
+}
+.y-axis-activity {
+    position: absolute;
+    top: 150px;
+    display:inline-block;
+    transform: rotate(-90deg);
+}
+.x-axis-activity {
+    position: absolute;
+    bottom: 0;
+    left: 410px;
+    
+}
+/* ------------ powerconsumption content ------------*/ 
+.power-wrapper-pc {
+    position: relative;
+    width: auto;
+    height: 380px;
+}
+.pc-chart {
+    position: absolute;
+    left: 40px;
+}
+.y-axis-pc {
+    position: absolute;
+    top: 150px;
+    display:inline-block;
+    transform: rotate(-90deg);
+}
+.x-axis-pc {
+    position: absolute;
+    bottom: 0;
+    left: 390px;
+    
+}

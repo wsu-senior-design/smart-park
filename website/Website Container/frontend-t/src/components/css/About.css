@@ -1,0 +1,139 @@
+.all {
+    height: 100%;
+    font-family: Helvetica, sans-serif;
+    font-size: 18pt;
+    background-color: whitesmoke;
+    padding-top: 100px;
+}
+
+.webTitle {
+    float: left;
+    text-align: left;
+    padding: 0px 50px;
+    margin-bottom: 15px;
+    font-size: 30pt;
+}
+
+.webDescription {
+    float: left;
+    text-align: left;
+    padding: 0px 50px;
+}
+
+.graphs {
+    width: 50%;
+    max-width: 40%;
+}
+
+.appTitle {
+    display: inline;
+    float: right;
+    text-align: right;
+    margin-bottom: 15px;
+    font-size: 30pt;
+}
+
+.webAndGraph {
+    display: flex;
+    flex-direction: row;
+    margin: 100px 75px 150px;
+    justify-content: space-between;
+
+}
+
+.appDescription {
+    float: right;
+    text-align: right;
+}
+
+.appPicture {
+    text-align: center;
+    width: 50%;
+    max-width: 20%;
+    max-height: auto;
+    margin-left: 50px;
+}
+
+.appAndPhoto {
+    display: flex;
+    flex-direction: row;
+    margin: 75px 75px;
+}
+
+.descriptionPhotos {
+    display: inline-block;
+}
+
+.aboutUs {
+    text-align: center;
+    font-size: 50pt;
+    padding: 30px;
+}
+
+.team {
+    text-align: center;
+    font-size: 30pt;
+    margin-top: 50px;
+}
+
+.portraits {
+    display: inline-block;
+    vertical-align: middle;
+    width: 175px;
+    height: 175px;
+    border-radius: 25px;
+    padding-right: 25px;
+}
+
+.pictures {
+    text-align: left;
+    padding-left: 100px;
+    clear: both;
+    width: 100vw;
+
+}
+
+.ul1 {
+    list-style-type: none;
+    padding-left: 0;
+    padding-left: 30px;
+}
+
+.li1 {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+.nameRole {
+    display: inline-block;
+    display: center;
+    font-size: 20pt;
+    font-weight: normal;
+}
+
+.bottomHalf {
+    background-color: #dfaec1;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+.bottomHalf1 {
+    background-color: #dfaec1;
+    position: relative;
+    top: 75px;
+}
+
+.titleAndDes {
+    display: flex;
+    flex-direction: column;
+}  
+
+.titleAndDes1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 75px;
+}
